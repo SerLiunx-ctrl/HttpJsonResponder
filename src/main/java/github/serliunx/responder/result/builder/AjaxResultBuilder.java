@@ -6,9 +6,8 @@ import github.serliunx.responder.result.DataHolder;
 import github.serliunx.responder.result.ajaxresult.CountResult;
 import github.serliunx.responder.result.ajaxresult.DefaultAjaxResult;
 
-import java.util.Objects;
-
-public class AjaxResultBuilder implements Builder<DefaultAjaxResult, CountResult>, Responsive, DataHolder<AjaxResultBuilder> {
+public class AjaxResultBuilder implements Builder<DefaultAjaxResult, CountResult>,
+        Responsive, DataHolder<AjaxResultBuilder> {
 
     private final DefaultAjaxResult defaultAjaxResult;
 
@@ -23,6 +22,11 @@ public class AjaxResultBuilder implements Builder<DefaultAjaxResult, CountResult
 
     public AjaxResultBuilder() {
         this.defaultAjaxResult = new DefaultAjaxResult(HttpStatusCode.SUCCESS);
+    }
+
+    public AjaxResultBuilder(DefaultAjaxResult defaultAjaxResult) {
+        this.defaultAjaxResult = defaultAjaxResult;
+        this.defaultAjaxResult.setStatus(null);
     }
 
     @Override

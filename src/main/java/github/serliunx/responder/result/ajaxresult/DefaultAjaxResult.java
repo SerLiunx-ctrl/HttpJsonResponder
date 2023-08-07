@@ -7,9 +7,9 @@ import org.jetbrains.annotations.Nullable;
 
 public class DefaultAjaxResult implements AjaxResult {
 
-    private Object data;
-    private String msg;
-    private int code;
+    protected Object data;
+    protected String msg;
+    protected int code;
 
     public DefaultAjaxResult(Object data, @NotNull String msg, int code) {
         this.data = data;
@@ -56,9 +56,14 @@ public class DefaultAjaxResult implements AjaxResult {
 
     @Override
     public void setStatus(HttpStatusCode status) {
-        checkStatus();
-        this.code = status.code();
-        this.msg = status.message();
+        if (status != null){
+            checkStatus();
+            this.code = status.code();
+            this.msg = status.message();
+        }else {
+            this.code = -1;
+            this.msg = null;
+        }
     }
 
     @Override

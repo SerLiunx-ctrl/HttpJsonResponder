@@ -1,10 +1,10 @@
 package github.serliunx.responder.result;
 
-public interface Countable {
+public interface Countable<T> {
 
     boolean isCountable();
 
     int getCount();
 
-    void setCount(int count);
+    T setCount(int count);
 }

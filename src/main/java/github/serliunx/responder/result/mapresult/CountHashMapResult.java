@@ -3,7 +3,7 @@ package github.serliunx.responder.result.mapresult;
 import github.serliunx.responder.code.HttpStatusCode;
 import github.serliunx.responder.result.Countable;
 
-public class CountHashMapResult extends HashMapResult implements Countable {
+public class CountHashMapResult extends HashMapResult implements Countable<CountHashMapResult> {
     private int count;
 
     public CountHashMapResult(HttpStatusCode httpStatusCode, int count) {
@@ -31,9 +31,10 @@ public class CountHashMapResult extends HashMapResult implements Countable {
     }
 
     @Override
-    public void setCount(int count) {
+    public CountHashMapResult setCount(int count) {
         putKeyAndValue("count", count);
         this.count = count;
+        return this;
     }
 
     @Override

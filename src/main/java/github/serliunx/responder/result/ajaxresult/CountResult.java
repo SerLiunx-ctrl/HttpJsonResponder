@@ -5,7 +5,7 @@ import github.serliunx.responder.result.Countable;
 
 import java.util.Collection;
 
-public class CountResult extends DefaultAjaxResult implements Countable {
+public class CountResult extends DefaultAjaxResult implements Countable<CountResult> {
 
     private int count;
 
@@ -29,8 +29,19 @@ public class CountResult extends DefaultAjaxResult implements Countable {
     }
 
     @Override
-    public void setCount(int count) {
+    public CountResult setCount(int count) {
         this.count = count;
+        return this;
+    }
+
+    @Override
+    public String toString() {
+        return "CountResult{" +
+                "count=" + count +
+                ", data=" + data +
+                ", msg='" + msg + '\'' +
+                ", code=" + code +
+                '}';
     }
 
     /**

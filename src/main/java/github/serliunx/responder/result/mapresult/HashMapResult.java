@@ -44,8 +44,10 @@ public class HashMapResult extends HashMap<String, Object> implements MapResult 
     public void setStatus(HttpStatusCode status) {
         checkStatus();
         this.httpStatusCode = status;
-        this.putKeyAndValue("code", status.code());
-        this.putKeyAndValue("msg", status.message());
+        if(status != null){
+            this.putKeyAndValue("code", status.code());
+            this.putKeyAndValue("msg", status.message());
+        }
     }
 
     @Override

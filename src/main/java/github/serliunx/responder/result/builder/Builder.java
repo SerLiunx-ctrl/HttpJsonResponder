@@ -3,7 +3,7 @@ package github.serliunx.responder.result.builder;
 import github.serliunx.responder.Responsive;
 import github.serliunx.responder.result.Countable;
 
-public interface Builder<R extends Responsive, C extends Countable>{
+public interface Builder<R extends Responsive, C extends Countable<?>>{
 
     /**
      * 结果构建器

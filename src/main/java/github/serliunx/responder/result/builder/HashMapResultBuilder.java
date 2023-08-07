@@ -18,6 +18,11 @@ public class HashMapResultBuilder implements Builder<HashMapResult, CountHashMap
         hashMapResult = new HashMapResult();
     }
 
+    public HashMapResultBuilder(HashMapResult hashMapResult) {
+        this.hashMapResult = hashMapResult;
+        this.hashMapResult.setStatus(null);
+    }
+
     public HashMapResultBuilder put(String key, Object value){
         hashMapResult.put(key, value);
         return this;
