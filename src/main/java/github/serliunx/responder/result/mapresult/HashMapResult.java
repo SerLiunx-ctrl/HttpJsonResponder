@@ -17,6 +17,12 @@ public class HashMapResult extends HashMap<String, Object> implements MapResult 
     }
 
     @Override
+    public MapResult putKeyAndValue(String key, Object data) {
+        super.put(key, data);
+        return this;
+    }
+
+    @Override
     public HashMapResult fail() {
         this.setStatus(HttpStatusCode.FORBIDDEN);
         return this;
@@ -38,8 +44,8 @@ public class HashMapResult extends HashMap<String, Object> implements MapResult 
     public void setStatus(HttpStatusCode status) {
         checkStatus();
         this.httpStatusCode = status;
-        super.put("code", status.code());
-        super.put("msg", status.message());
+        this.putKeyAndValue("code", status.code());
+        this.putKeyAndValue("msg", status.message());
     }
 
     @Override
@@ -55,7 +61,7 @@ public class HashMapResult extends HashMap<String, Object> implements MapResult 
     /**
      * 内置状态检查
      */
-    private void checkStatus(){
+    protected void checkStatus(){
         if(this.httpStatusCode != null){
             throw new DuplicateStatusException("状态码只允许设置一次!");
         }

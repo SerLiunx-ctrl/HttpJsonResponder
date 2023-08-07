@@ -9,6 +9,8 @@ import java.util.Map;
 
 public interface MapResult extends Map<String, Object>, Responsive, Stateful {
 
+    MapResult putKeyAndValue(String key, Object data);
+
     static HashMapResultBuilder builder(HttpStatusCode httpStatusCode){
         return new HashMapResultBuilder(httpStatusCode);
     }

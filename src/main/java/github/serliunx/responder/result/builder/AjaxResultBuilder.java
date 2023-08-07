@@ -3,10 +3,12 @@ package github.serliunx.responder.result.builder;
 import github.serliunx.responder.Responsive;
 import github.serliunx.responder.code.HttpStatusCode;
 import github.serliunx.responder.result.DataHolder;
-import github.serliunx.responder.result.ajaxresult.AjaxResult;
+import github.serliunx.responder.result.ajaxresult.CountResult;
 import github.serliunx.responder.result.ajaxresult.DefaultAjaxResult;
 
-public class AjaxResultBuilder implements Builder<DefaultAjaxResult>, Responsive, DataHolder<AjaxResultBuilder> {
+import java.util.Objects;
+
+public class AjaxResultBuilder implements Builder<DefaultAjaxResult, CountResult>, Responsive, DataHolder<AjaxResultBuilder> {
 
     private final DefaultAjaxResult defaultAjaxResult;
 
@@ -37,6 +39,15 @@ public class AjaxResultBuilder implements Builder<DefaultAjaxResult>, Responsive
     @Override
     public DefaultAjaxResult build() {
         return this.defaultAjaxResult;
+    }
+
+    @Override
+    public CountResult covertToCountable() {
+        HttpStatusCode status = this.defaultAjaxResult.getStatus();
+        if(status == null) status = HttpStatusCode.SUCCESS;
+        CountResult countResult = new CountResult(this.defaultAjaxResult.getData(), status, 0);
+        countResult.setData(this.defaultAjaxResult.getData());
+        return countResult;
     }
 
     @Override

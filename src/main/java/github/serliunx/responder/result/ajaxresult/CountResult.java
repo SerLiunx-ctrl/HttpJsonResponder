@@ -1,12 +1,13 @@
 package github.serliunx.responder.result.ajaxresult;
 
 import github.serliunx.responder.code.HttpStatusCode;
+import github.serliunx.responder.result.Countable;
 
 import java.util.Collection;
 
-public class CountResult extends DefaultAjaxResult {
+public class CountResult extends DefaultAjaxResult implements Countable {
 
-    private final int count;
+    private int count;
 
     public CountResult(Object data, String msg, int code, int count) {
         super(data, msg, code);
@@ -15,6 +16,21 @@ public class CountResult extends DefaultAjaxResult {
 
     public CountResult(Object data, HttpStatusCode httpStatusCode, int count){
         this(data, httpStatusCode.message(), httpStatusCode.code(), count);
+    }
+
+    @Override
+    public boolean isCountable() {
+        return this.count != 0;
+    }
+
+    @Override
+    public int getCount() {
+        return this.count;
+    }
+
+    @Override
+    public void setCount(int count) {
+        this.count = count;
     }
 
     /**
