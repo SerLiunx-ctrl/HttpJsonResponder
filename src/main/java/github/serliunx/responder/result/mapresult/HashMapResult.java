@@ -1,6 +1,5 @@
 package github.serliunx.responder.result.mapresult;
 
-import github.serliunx.responder.Responsive;
 import github.serliunx.responder.code.HttpStatusCode;
 
 import java.util.HashMap;
@@ -10,7 +9,7 @@ public class HashMapResult extends HashMap<String, Object> implements MapResult 
     private HttpStatusCode httpStatusCode;
 
     public HashMapResult(HttpStatusCode httpStatusCode) {
-        this.httpStatusCode = httpStatusCode;
+        setStatus(httpStatusCode);
     }
 
     public HashMapResult() {
