@@ -1,6 +1,7 @@
 package github.serliunx.responder.result.mapresult;
 
 import github.serliunx.responder.code.HttpStatusCode;
+import github.serliunx.responder.exception.DuplicateStatusException;
 
 import java.util.HashMap;
 
@@ -35,6 +36,7 @@ public class HashMapResult extends HashMap<String, Object> implements MapResult 
 
     @Override
     public void setStatus(HttpStatusCode status) {
+        checkStatus();
         this.httpStatusCode = status;
         super.put("code", status.code());
         super.put("msg", status.message());
@@ -43,5 +45,19 @@ public class HashMapResult extends HashMap<String, Object> implements MapResult 
     @Override
     public HttpStatusCode getStatus() {
         return this.httpStatusCode;
+    }
+
+    @Override
+    public int getCode() {
+        return this.httpStatusCode.code();
+    }
+
+    /**
+     * 内置状态检查
+     */
+    private void checkStatus(){
+        if(this.httpStatusCode != null){
+            throw new DuplicateStatusException("状态码只允许设置一次!");
+        }
     }
 }

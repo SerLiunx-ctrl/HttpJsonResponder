@@ -1,7 +1,7 @@
 package github.serliunx.responder.result.ajaxresult;
 
-import github.serliunx.responder.Responsive;
 import github.serliunx.responder.code.HttpStatusCode;
+import github.serliunx.responder.exception.DuplicateStatusException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -56,6 +56,7 @@ public class DefaultAjaxResult implements AjaxResult {
 
     @Override
     public void setStatus(HttpStatusCode status) {
+        checkStatus();
         this.code = status.code();
         this.msg = status.message();
     }
@@ -67,11 +68,25 @@ public class DefaultAjaxResult implements AjaxResult {
     }
 
     @Override
+    public int getCode() {
+        return this.code;
+    }
+
+    @Override
     public String toString() {
         return "DefaultAjaxResult{" +
                 "data=" + data +
                 ", msg='" + msg + '\'' +
                 ", code=" + code +
                 '}';
+    }
+
+    /**
+     * 内置状态检查
+     */
+    private void checkStatus(){
+        if(this.code >= 0){
+            throw new DuplicateStatusException("状态码只允许设置一次!");
+        }
     }
 }

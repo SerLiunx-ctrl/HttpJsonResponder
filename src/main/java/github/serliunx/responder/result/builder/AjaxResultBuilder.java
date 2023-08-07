@@ -19,6 +19,10 @@ public class AjaxResultBuilder implements Builder<DefaultAjaxResult>, Responsive
         this.defaultAjaxResult.setData(data);
     }
 
+    public AjaxResultBuilder() {
+        this.defaultAjaxResult = new DefaultAjaxResult(HttpStatusCode.SUCCESS);
+    }
+
     @Override
     public AjaxResultBuilder setData(Object data) {
         this.defaultAjaxResult.setData(data);
