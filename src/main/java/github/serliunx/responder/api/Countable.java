@@ -1,4 +1,4 @@
-package github.serliunx.responder.result;
+package github.serliunx.responder.api;
 
 public interface Countable<T> {
 

@@ -1,5 +1,6 @@
 package github.serliunx.responder.result.ajaxresult;
 
+import github.serliunx.responder.api.result.AjaxResult;
 import github.serliunx.responder.code.HttpStatusCode;
 import github.serliunx.responder.exception.DuplicateStatusException;
 import org.jetbrains.annotations.NotNull;

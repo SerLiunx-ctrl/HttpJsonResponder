@@ -1,6 +1,7 @@
 package github.serliunx.responder.result.builder;
 
-import github.serliunx.responder.Responsive;
+import github.serliunx.responder.api.Responsive;
+import github.serliunx.responder.api.result.Builder;
 import github.serliunx.responder.code.HttpStatusCode;
 import github.serliunx.responder.result.mapresult.CountHashMapResult;
 import github.serliunx.responder.result.mapresult.HashMapResult;

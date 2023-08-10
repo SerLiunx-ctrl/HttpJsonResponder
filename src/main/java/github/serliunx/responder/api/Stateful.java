@@ -1,4 +1,4 @@
-package github.serliunx.responder.result;
+package github.serliunx.responder.api;
 
 import github.serliunx.responder.code.HttpStatusCode;
 import github.serliunx.responder.result.ajaxresult.DefaultAjaxResult;

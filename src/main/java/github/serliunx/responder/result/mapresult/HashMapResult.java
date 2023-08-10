@@ -1,5 +1,6 @@
 package github.serliunx.responder.result.mapresult;
 
+import github.serliunx.responder.api.result.MapResult;
 import github.serliunx.responder.code.HttpStatusCode;
 import github.serliunx.responder.exception.DuplicateStatusException;
 

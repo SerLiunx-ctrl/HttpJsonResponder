@@ -1,9 +1,10 @@
-package github.serliunx.responder.result.mapresult;
+package github.serliunx.responder.api.result;
 
-import github.serliunx.responder.Responsive;
+import github.serliunx.responder.api.Responsive;
 import github.serliunx.responder.code.HttpStatusCode;
-import github.serliunx.responder.result.Stateful;
+import github.serliunx.responder.api.Stateful;
 import github.serliunx.responder.result.builder.HashMapResultBuilder;
+import github.serliunx.responder.result.mapresult.HashMapResult;
 
 import java.util.Map;
 
