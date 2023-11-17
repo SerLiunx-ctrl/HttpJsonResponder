@@ -1,7 +1,7 @@
-package github.serliunx.responder.api.result;
+package com.serliunx.responder.api.result;
 
-import github.serliunx.responder.api.Responsive;
-import github.serliunx.responder.api.Countable;
+import com.serliunx.responder.api.Countable;
+import com.serliunx.responder.api.Responsive;
 
 public interface Builder<R extends Responsive, C extends Countable<?>>{
 

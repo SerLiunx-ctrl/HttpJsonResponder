@@ -1,8 +1,8 @@
-package github.serliunx.responder.result.mapresult;
+package com.serliunx.responder.result.mapresult;
 
-import github.serliunx.responder.api.result.MapResult;
-import github.serliunx.responder.code.HttpStatusCode;
-import github.serliunx.responder.exception.DuplicateStatusException;
+import com.serliunx.responder.api.result.MapResult;
+import com.serliunx.responder.code.HttpStatusCode;
+import com.serliunx.responder.exception.DuplicateStatusException;
 
 import java.util.HashMap;
 

@@ -1,10 +1,8 @@
-package github.serliunx.responder.api.result;
+package com.serliunx.responder.api.result;
 
-import github.serliunx.responder.api.Responsive;
-import github.serliunx.responder.code.HttpStatusCode;
-import github.serliunx.responder.api.Stateful;
-import github.serliunx.responder.result.builder.HashMapResultBuilder;
-import github.serliunx.responder.result.mapresult.HashMapResult;
+import com.serliunx.responder.code.HttpStatusCode;
+import com.serliunx.responder.result.builder.HashMapResultBuilder;
+import com.serliunx.responder.result.mapresult.HashMapResult;
 
 import java.util.Map;
 
@@ -13,7 +11,7 @@ import java.util.Map;
  *
  * @see HashMapResult
  */
-public interface MapResult extends Map<String, Object>, Responsive, Stateful {
+public interface MapResult extends Result, Map<String, Object>{
 
     /**
      * 放入键值对

@@ -1,4 +1,4 @@
-package github.serliunx.responder.api;
+package com.serliunx.responder.api;
 
 public interface DataHolder<T> {
     T setData(Object data);

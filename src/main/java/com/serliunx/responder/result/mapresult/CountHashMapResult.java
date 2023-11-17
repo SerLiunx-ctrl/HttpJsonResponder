@@ -1,7 +1,7 @@
-package github.serliunx.responder.result.mapresult;
+package com.serliunx.responder.result.mapresult;
 
-import github.serliunx.responder.code.HttpStatusCode;
-import github.serliunx.responder.api.Countable;
+import com.serliunx.responder.api.Countable;
+import com.serliunx.responder.code.HttpStatusCode;
 
 public class CountHashMapResult extends HashMapResult implements Countable<CountHashMapResult> {
     private int count;

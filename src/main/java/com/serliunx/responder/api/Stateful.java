@@ -1,8 +1,8 @@
-package github.serliunx.responder.api;
+package com.serliunx.responder.api;
 
-import github.serliunx.responder.code.HttpStatusCode;
-import github.serliunx.responder.result.ajaxresult.DefaultAjaxResult;
-import github.serliunx.responder.result.mapresult.HashMapResult;
+import com.serliunx.responder.code.HttpStatusCode;
+import com.serliunx.responder.result.ajaxresult.DefaultAjaxResult;
+import com.serliunx.responder.result.mapresult.HashMapResult;
 
 /**
  * 定义了返回结果有且只有一种状态

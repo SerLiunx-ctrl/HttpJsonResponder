@@ -1,14 +1,14 @@
-package github.serliunx.responder.result.builder;
+package com.serliunx.responder.result.builder;
 
-import github.serliunx.responder.api.Responsive;
-import github.serliunx.responder.api.result.Builder;
-import github.serliunx.responder.code.HttpStatusCode;
-import github.serliunx.responder.result.mapresult.CountHashMapResult;
-import github.serliunx.responder.result.mapresult.HashMapResult;
+import com.serliunx.responder.api.Responsive;
+import com.serliunx.responder.code.HttpStatusCode;
+import com.serliunx.responder.api.result.Builder;
+import com.serliunx.responder.result.mapresult.CountHashMapResult;
+import com.serliunx.responder.result.mapresult.HashMapResult;
 
 import java.util.Set;
 
-public class HashMapResultBuilder implements Builder<HashMapResult, CountHashMapResult>, Responsive{
+public class HashMapResultBuilder implements Builder<HashMapResult, CountHashMapResult>, Responsive {
     private final HashMapResult hashMapResult;
 
     public HashMapResultBuilder(HttpStatusCode httpStatusCode) {
@@ -44,8 +44,7 @@ public class HashMapResultBuilder implements Builder<HashMapResult, CountHashMap
                 count++;
             }
         }
-        countHashMapResult.setCount(count);
-        return countHashMapResult;
+        return countHashMapResult.setCount(count);
     }
 
     @Override

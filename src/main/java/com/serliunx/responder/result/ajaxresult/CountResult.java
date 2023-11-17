@@ -1,7 +1,7 @@
-package github.serliunx.responder.result.ajaxresult;
+package com.serliunx.responder.result.ajaxresult;
 
-import github.serliunx.responder.code.HttpStatusCode;
-import github.serliunx.responder.api.Countable;
+import com.serliunx.responder.code.HttpStatusCode;
+import com.serliunx.responder.api.Countable;
 
 import java.util.Collection;
 

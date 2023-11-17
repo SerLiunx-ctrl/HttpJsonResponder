@@ -1,4 +1,6 @@
-package github.serliunx.responder.code;
+package com.serliunx.responder.code;
+
+import java.util.Arrays;
 
 /**
  * HTTP请求状态码
@@ -43,13 +45,9 @@ public enum HttpStatusCode {
         return message;
     }
 
-    public static HttpStatusCode find(int code, String message){
-        HttpStatusCode httpStatusCode = null;
-        for (HttpStatusCode value : HttpStatusCode.values()) {
-            if(value.code == code && value.message.equals(message)){
-                httpStatusCode = value;
-            }
-        }
-        return httpStatusCode;
+    public static HttpStatusCode find(int code){
+       return Arrays.stream(HttpStatusCode.values())
+               .filter(httpStatusCode -> httpStatusCode.code == code)
+               .findFirst().orElse(HttpStatusCode.SUCCESS);
     }
 }

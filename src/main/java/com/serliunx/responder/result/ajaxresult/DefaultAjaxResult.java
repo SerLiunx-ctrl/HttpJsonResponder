@@ -1,10 +1,17 @@
-package github.serliunx.responder.result.ajaxresult;
+package com.serliunx.responder.result.ajaxresult;
 
-import github.serliunx.responder.api.result.AjaxResult;
-import github.serliunx.responder.code.HttpStatusCode;
-import github.serliunx.responder.exception.DuplicateStatusException;
+import com.serliunx.responder.annotation.FieldIgnore;
+import com.serliunx.responder.api.result.MapResult;
+import com.serliunx.responder.code.HttpStatusCode;
+import com.serliunx.responder.exception.DuplicateStatusException;
+import com.serliunx.responder.result.builder.HashMapResultBuilder;
+import com.serliunx.responder.util.ReflectUtils;
+import com.serliunx.responder.api.result.AjaxResult;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.lang.reflect.Field;
+import java.util.List;
 
 public class DefaultAjaxResult implements AjaxResult {
 
@@ -70,7 +77,26 @@ public class DefaultAjaxResult implements AjaxResult {
     @Override
     @Nullable
     public HttpStatusCode getStatus() {
-        return HttpStatusCode.find(this.code, this.msg);
+        return HttpStatusCode.find(this.code);
+    }
+
+    @Override
+    public MapResult convert() {
+        Class<?> clazz = data.getClass();
+        List<Field> fields = ReflectUtils.getFieldsWithoutAnnotation(clazz, FieldIgnore.class);
+        HashMapResultBuilder builder = MapResult.builder(getStatus());
+        fields.forEach(field -> {
+            try {
+                if(data == null){
+                    builder.put(field.getName(), null);
+                }else{
+                    builder.put(field.getName(), field.get(data));
+                }
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        return builder.build();
     }
 
     @Override

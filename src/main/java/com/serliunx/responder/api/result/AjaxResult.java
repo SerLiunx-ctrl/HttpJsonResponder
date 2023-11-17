@@ -1,12 +1,11 @@
-package github.serliunx.responder.api.result;
+package com.serliunx.responder.api.result;
 
-import github.serliunx.responder.api.Responsive;
-import github.serliunx.responder.code.HttpStatusCode;
-import github.serliunx.responder.api.DataHolder;
-import github.serliunx.responder.api.Stateful;
-import github.serliunx.responder.result.ajaxresult.CountResult;
-import github.serliunx.responder.result.ajaxresult.DefaultAjaxResult;
-import github.serliunx.responder.result.builder.AjaxResultBuilder;
+import com.serliunx.responder.api.Converter;
+import com.serliunx.responder.api.DataHolder;
+import com.serliunx.responder.code.HttpStatusCode;
+import com.serliunx.responder.result.ajaxresult.CountResult;
+import com.serliunx.responder.result.ajaxresult.DefaultAjaxResult;
+import com.serliunx.responder.result.builder.AjaxResultBuilder;
 
 /**
  * AjaxResult 顶层接口
@@ -14,7 +13,7 @@ import github.serliunx.responder.result.builder.AjaxResultBuilder;
  * @see DefaultAjaxResult
  * @see CountResult
  */
-public interface AjaxResult extends Responsive, Stateful, DataHolder<AjaxResult> {
+public interface AjaxResult extends Result, DataHolder<AjaxResult>, Converter<MapResult> {
 
     /**
      * 获取一个结果构建器

@@ -1,9 +1,9 @@
-package github.serliunx.responder.api;
+package com.serliunx.responder.api;
 
-import github.serliunx.responder.result.ajaxresult.DefaultAjaxResult;
-import github.serliunx.responder.result.mapresult.HashMapResult;
-import github.serliunx.responder.api.result.MapResult;
-import github.serliunx.responder.api.result.AjaxResult;
+import com.serliunx.responder.result.ajaxresult.DefaultAjaxResult;
+import com.serliunx.responder.result.mapresult.HashMapResult;
+import com.serliunx.responder.api.result.MapResult;
+import com.serliunx.responder.api.result.AjaxResult;
 
 /**
  * <li> 响应顶层接口

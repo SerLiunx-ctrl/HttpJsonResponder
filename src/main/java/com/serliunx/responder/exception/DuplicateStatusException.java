@@ -1,6 +1,6 @@
-package github.serliunx.responder.exception;
+package com.serliunx.responder.exception;
 
-import github.serliunx.responder.api.result.Builder;
+import com.serliunx.responder.api.result.Builder;
 
 /**
  * 状态重复异常
